@@ -1,10 +1,13 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {BackofficeUserService} from "../../../../core/services/data/backofficeUser/backoffice-user.service";
-import {BackofficeUser} from "../../../../model/backofficeUser";
+import {BackofficeUserService} from '../../../../core/services/data/backofficeUser/backoffice-user.service';
+import {BackofficeUser} from '../../../../model/backofficeUser';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {merge, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
+import {Router} from '@angular/router';
+import {ConfirmDialogComponent} from '../../../components/confirm-dialog/confirm-dialog.component';
+import {MatDialog, MatTableDataSource} from '@angular/material';
 
 @Component({
     selector: 'app-backoffice-user-list',
@@ -12,8 +15,9 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
     styleUrls: ['./backoffice-user-list.component.scss']
 })
 export class BackofficeUserListComponent implements AfterViewInit {
-    data: BackofficeUser[];
+    data: MatTableDataSource<BackofficeUser>;
     displayedColumns: string[] = [
+        'id',
         'username',
         'enabled',
         'email',
@@ -21,7 +25,20 @@ export class BackofficeUserListComponent implements AfterViewInit {
         'lastName',
         'accountExpired',
         'accountLocked',
-        'passwordExpired'
+        'passwordExpired',
+        'actions'
+    ];
+    dataColumns: string[] = [
+        'id',
+        'username',
+        'password',
+        'enabled',
+        'email',
+        'firstName',
+        'lastName',
+        'accountExpired',
+        'accountLocked',
+        'passwordExpired',
     ];
 
     resultsLength = 0;
@@ -32,8 +49,11 @@ export class BackofficeUserListComponent implements AfterViewInit {
     @ViewChild(MatSort, {static: false}) sort: MatSort;
 
     constructor(
-        public service: BackofficeUserService
-    ) { }
+        public service: BackofficeUserService,
+        public router: Router,
+        public dialog: MatDialog
+    ) {
+    }
 
     ngAfterViewInit() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
@@ -54,13 +74,29 @@ export class BackofficeUserListComponent implements AfterViewInit {
                 }),
                 catchError(() => {
                     this.isLoadingResults = false;
-                    // Catch if the GitHub API has reached its rate limit. Return empty data.
                     this.isRateLimitReached = true;
                     return observableOf([]);
                 })
             ).subscribe(result => {
-                this.data = result;
-            });
+                this.data = new MatTableDataSource<BackofficeUser>(result);
+        });
     }
 
+    deleteUser(id: number) {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: 'Do you confirm the deletion of this data?'
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+
+                this.service.delete(id).subscribe(res => {
+                    this.ngAfterViewInit();
+                    this.router.navigateByUrl('/users');
+
+                });
+            }
+        });
+
+    }
 }
