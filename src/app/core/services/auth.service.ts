@@ -4,6 +4,7 @@ import {Auth} from '../../model/auth';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
+import {Role} from '../../model/role';
 
 @Injectable({
     providedIn: 'root',
@@ -90,6 +91,19 @@ export class AuthService {
             return '';
         }
         return auth.access_token;
+    }
+
+    getRoles() {
+        const auth: Auth = this.getAuth();
+        if (!auth) {
+            return '';
+        }
+        return auth.roles;
+    }
+
+    hasRoles(roles: Role[]) {
+        const userRoles = this.getRoles();
+        return roles.some(r => userRoles.indexOf(r) < 0);
     }
 
     private getAuth() {

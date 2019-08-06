@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
-import { Router } from '@angular/router';
-import {AuthService} from "../../core/services/auth.service";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {AuthService} from '../../core/services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -10,8 +9,18 @@ export class AuthGuard implements CanActivate {
         private authService: AuthService,
     ) {}
 
-    canActivate() {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (this.authService.isLogged()) {
+            const roles = this.authService.getRoles();
+            if (route.data.roles) {
+                if ( route.data.roles.some(r => roles.indexOf(r) < 0)) {
+                    // role not authorised so redirect to root
+                    this.router.navigate(['/dashboard']);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
             return true;
         }
 
