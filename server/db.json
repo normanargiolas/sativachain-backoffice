@@ -1,0 +1,132 @@
+{
+    "login": [
+        {
+            "id": "admin",
+            "username": "admin",
+            "firstname": "admin",
+            "lastname": "admin",
+            "roles": ["ROLE_ADMIN"],
+            "token_type": "bearer",
+            "access_token": "123456abcd"
+        },
+        {
+            "id": "zio_tom",
+            "username": "zio_tom",
+            "firstname": "Tom",
+            "lastname": "Farmer",
+            "roles": ["ROLE_FARMER"],
+            "token_type": "bearer",
+            "access_token": "123456abcd"
+        },
+        {
+            "id": "transformer",
+            "username": "transformer",
+            "firstname": "Bill",
+            "lastname": "Transformer",
+            "roles": ["ROLE_TRANSFORMER"],
+            "token_type": "bearer",
+            "access_token": "123456abcd"
+        },
+        {
+            "id": "zio_sam",
+            "username": "zio_sam",
+            "firstname": "Sam",
+            "lastname": "Farmer",
+            "roles": ["ROLE_FARMER", "ROLE_TRANSFORMER"],
+            "token_type": "bearer",
+            "access_token": "123456abcd"
+        }
+    ],
+    "backofficeRole": [
+        {
+            "id": 1,
+            "authority": "ROLE_ADMIN"
+        },
+        {
+            "id": 2,
+            "authority": "ROLE_FARMER"
+        },
+        {
+            "id": 3,
+            "authority": "ROLE_TRANSFORMER"
+        }
+    ],
+    "backofficeUser": [
+        {
+            "id": "1",
+            "username": "admin",
+            "password": "admin",
+            "enabled": true,
+            "email": "admin@sativachain.org",
+            "firstName": "admin",
+            "lastName": "admin",
+            "accountExpired": false,
+            "accountLocked": false,
+            "passwordExpired": false,
+            "authorities": [
+                {
+                    "id": 1,
+                    "authority": "ROLE_ADMIN"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "username": "zio_tom",
+            "password": "zio_tom",
+            "enabled": true,
+            "email": "zio_tom@sativachain.org",
+            "firstName": "Tom",
+            "lastName": "Farmer",
+            "accountExpired": false,
+            "accountLocked": false,
+            "passwordExpired": false,
+            "authorities": [
+                {
+                    "id": 2,
+                    "authority": "ROLE_FARMER"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "username": "transformer",
+            "password": "transformer",
+            "enabled": true,
+            "email": "bill@sativachain.org",
+            "firstName": "Bill",
+            "lastName": "Transformer",
+            "accountExpired": false,
+            "accountLocked": false,
+            "passwordExpired": false,
+            "authorities": [
+                {
+                    "id": 3,
+                    "authority": "ROLE_TRANSFORMER"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "username": "zio_sam",
+            "password": "zio_sam",
+            "enabled": true,
+            "email": "zio_sam@sativachain.org",
+            "firstName": "Sam",
+            "lastName": "Farmer",
+            "accountExpired": false,
+            "accountLocked": false,
+            "passwordExpired": false,
+            "authorities": [
+                {
+                    "id": 2,
+                    "authority": "ROLE_FARMER"
+                },
+                {
+                    "id": 3,
+                    "authority": "ROLE_TRANSFORMER"
+                }
+            ]
+        }
+    ]
+}
