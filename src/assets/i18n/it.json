@@ -41,5 +41,17 @@
     "Access denied": "Accesso negato",
     "Invalid credentials": "Credenziali errate",
     "OrRegister": " oppure, se non lo hai già fatto ",
-    "OrLogin": " oppure, se se già registrato "
+    "OrLogin": " oppure, se se già registrato ",
+    "Roles": "Ruoli",
+    "Users": "Utenti",
+    "id": "Id",
+    "username": "Username",
+    "enabled": "Attivo",
+    "email": "Email",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "accountExpired": "Account scaduto",
+    "accountLocked": "Account bloccato",
+    "passwordExpired": "Password scaduta",
+    "actions": "Azioni"
 }

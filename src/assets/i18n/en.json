@@ -38,5 +38,20 @@
     "Register": "Register",
     "Log in": "Log in",
     "Access denied": "Access denied",
-    "Invalid credentials": "Invalid credentials"
+    "Invalid credentials": "Invalid credentials",
+    "OrRegister": " or, if you haven't already ",
+    "OrLogin": " or, if already registered ",
+    "Roles": "Roles",
+    "Users": "Users",
+
+    "id": "Id",
+    "username": "Username",
+    "enabled": "Enabled",
+    "email": "Email",
+    "firstName": "Firstname",
+    "lastName": "Lastname",
+    "accountExpired": "Account expired",
+    "accountLocked": "Account locked",
+    "passwordExpired": "Password expired",
+    "actions": "Actions"
 }
