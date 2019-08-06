@@ -5,6 +5,8 @@
 @import "rtl";
 @import "responsive";
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "forms";
+@import "tables";
 
 @media print {
     .breadcrumb {

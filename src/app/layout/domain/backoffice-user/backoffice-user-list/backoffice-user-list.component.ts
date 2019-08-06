@@ -25,7 +25,6 @@ export class BackofficeUserListComponent implements AfterViewInit {
         'lastName',
         'accountExpired',
         'accountLocked',
-        'passwordExpired',
         'actions'
     ];
     dataColumns: string[] = [

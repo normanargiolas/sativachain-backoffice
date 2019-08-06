@@ -30,11 +30,14 @@ export class BackofficeUserFormComponent implements OnInit {
     ) { }
 
     onSubmit() {
-        if(!this.userForm.invalid) {
+        if (!this.userForm.invalid) {
             this.user = this.userForm.value;
-            const obs = this.service.save(this.user);
-            if (this.state === "edit") {
-
+            let obs = this.service.save(this.user);
+            if (this.state === 'create') {
+                obs = this.service.save(this.user);
+            }
+            if (this.state === 'edit') {
+                obs = this.service.update(this.user.id, this.user);
             }
             obs.subscribe(res => {
                     this.router.navigateByUrl('/users');
@@ -47,19 +50,25 @@ export class BackofficeUserFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.route.data.subscribe(data => this.state=data.state);
+        this.route.data.subscribe(data => this.state = data.state);
         this.getData();
         this.userForm = this.formService.createFormGroup(this.formModel);
+        if (this.state === 'show') {
+            Object.keys(this.userForm.controls).forEach(key => {
+                const value = this.userForm.controls[key];
+                value.disable();
+            });
+        }
     }
 
     getData() {
-        if (this.state==='show' || this.state==='edit'){
-            let id = Number(this.route.snapshot.paramMap.get('id'));
+        if (this.state === 'show' || this.state === 'edit') {
+            const id = Number(this.route.snapshot.paramMap.get('id'));
             this.service.findOne(id).subscribe(res => {
                 this.user = res;
                 this.userForm.reset();
                 this.userForm.setValue(this.user);
-            })
+            });
         }
     }
 

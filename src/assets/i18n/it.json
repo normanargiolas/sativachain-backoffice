@@ -53,5 +53,6 @@
     "accountExpired": "Account scaduto",
     "accountLocked": "Account bloccato",
     "passwordExpired": "Password scaduta",
-    "actions": "Azioni"
+    "actions": "Azioni",
+    "GoBack": "Indietro"
 }

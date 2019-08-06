@@ -1,26 +1,31 @@
-<div>
+<div class="row container">
     <button class="btn btn-outline-dark" type="button" routerLink="../" (click)="resetForm()">
-        <i class="fa fa-backward"></i>{{ ' Go Back' | translate }} </button>
+        <i class="fa fa-backward fa-fw"></i>{{ 'GoBack' | translate }}
+    </button>
 </div>
 
 <div class="alert alert-danger" *ngIf="errors?.length">
     <p *ngFor="let item of errors"> {{item}}</p>
 </div>
+<div class="form-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <dynamic-material-form [group]="userForm" [model]="formModel"></dynamic-material-form>
 
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <dynamic-material-form [group]="userForm" [model]="formModel"></dynamic-material-form>
-    <button *ngIf="this.state!== 'show'" type="submit" class="btn btn-outline-success" [disabled]="userForm.invalid">
-        <i class="fa fa-check"></i>
-        {{ ' Submit' | translate }}
-    </button>
-    <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-primary" [routerLink]="['/users/edit', { id: user?.id}]">
-        <i class="fa fa-pencil-square-o"></i>
-        {{ ' Edit' | translate }}
-    </button>
-    <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-danger" (click)="deleteUser()">
-        <i class="fa fa-trash-o"></i>
-        {{ ' Delete' | translate }}
-    </button>
+        <div class="form-group form-buttons">
+            <button *ngIf="this.state!== 'show'" type="submit" class="btn btn-outline-success" [disabled]="userForm.invalid">
+                <i class="fa fa-check fa-fw"></i>
+                {{ 'Submit' | translate }}
+            </button>
+            <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-primary" [routerLink]="['/users/edit', { id: user?.id}]">
+                <i class="fa fa-pencil-square-o fa-fw"></i>
+                {{ 'Edit' | translate }}
+            </button>
+            <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-danger" (click)="deleteUser()">
+                <i class="fa fa-trash-o fa-fw"></i>
+                {{ 'Delete' | translate }}
+            </button>
+        </div>
+    </form>
 
-</form>
+</div>
 

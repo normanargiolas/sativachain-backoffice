@@ -53,5 +53,6 @@
     "accountExpired": "Account expired",
     "accountLocked": "Account locked",
     "passwordExpired": "Password expired",
-    "actions": "Actions"
+    "actions": "Actions",
+    "GoBack": "Back",
 }
