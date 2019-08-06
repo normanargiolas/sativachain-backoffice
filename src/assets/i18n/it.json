@@ -39,6 +39,7 @@
     "Register": "Registrati",
     "Log in": "Accedi",
     "Access denied": "Accesso negato",
-    "Invalid credentials": "Credenziali errate"
-
+    "Invalid credentials": "Credenziali errate",
+    "OrRegister": " oppure, se non lo hai già fatto ",
+    "OrLogin": " oppure, se se già registrato "
 }

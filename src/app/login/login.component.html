@@ -16,10 +16,13 @@
                     </div>
                 </div>
                 <div class="alert alert-danger" *ngIf="auth.error">{{auth.error}}</div>
-                <button class="btn rounded-btn" type="submit" [disabled]="f.invalid">{{ 'Log in' | translate }}</button>
-<!--                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>-->
-                &nbsp;
-<!--                <a class="btn rounded-btn" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>-->
+                <div class="row justify-content-center">
+                    <button class="btn rounded-btn col-md-6" type="submit" [disabled]="f.invalid">{{ 'Log in' | translate }}</button>
+                    <p class="col-md-12">{{ 'OrRegister' | translate }}</p>
+                    <a class="btn rounded-btn col-md-6" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>
+                </div>
+
+
 
             </form>
         </div>

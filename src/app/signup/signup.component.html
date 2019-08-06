@@ -1,8 +1,8 @@
 <div class="login-page" [@routerTransition]>
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>{{ 'AppName' | translate }}</h1>
+            <img src="assets/images/icon_192.png" width="150px"/>
+            <h1>{{ 'Register' | translate }}</h1>
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
@@ -20,8 +20,11 @@
                         <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Repeat Password' | translate }}">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']">{{ 'Register' | translate }}</a>&nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/login']">{{ 'Log in' | translate }}</a>
+                <div class="row justify-content-center">
+                    <a class="btn rounded-btn text-center col-md-6" [routerLink]="['/dashboard']">{{ 'Register' | translate }}</a>
+                    <p class="col-md-12">{{ 'OrLogin' | translate }}</p>
+                    <a class="btn rounded-btn col-md-6" [routerLink]="['/login']">{{ 'Log in' | translate }}</a>
+                </div>
             </form>
         </div>
     </div>
