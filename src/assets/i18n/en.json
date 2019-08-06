@@ -43,7 +43,6 @@
     "OrLogin": " or, if already registered ",
     "Roles": "Roles",
     "Users": "Users",
-
     "id": "Id",
     "username": "Username",
     "enabled": "Enabled",
@@ -55,4 +54,7 @@
     "passwordExpired": "Password expired",
     "actions": "Actions",
     "GoBack": "Back",
+    "Submit": "Save",
+    "Edit": "Edit",
+    "Delete": "Delete",
 }

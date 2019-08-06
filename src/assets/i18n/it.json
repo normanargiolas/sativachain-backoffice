@@ -54,5 +54,8 @@
     "accountLocked": "Account bloccato",
     "passwordExpired": "Password scaduta",
     "actions": "Azioni",
-    "GoBack": "Indietro"
+    "GoBack": "Indietro",
+    "Submit": "Salva",
+    "Edit": "Modifica",
+    "Delete": "Elimina"
 }
