@@ -9,6 +9,7 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
+import {SharedDirectivesModule} from '../shared/shared-directives/shared-directives.module';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import {MatButtonModule, MatDialogModule} from '@angular/material';
         TranslateModule,
         NgbDropdownModule,
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        SharedDirectivesModule
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent, ConfirmDialogComponent],
     entryComponents: [

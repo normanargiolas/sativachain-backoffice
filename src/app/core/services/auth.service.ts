@@ -103,7 +103,7 @@ export class AuthService {
 
     hasRoles(roles: Role[]) {
         const userRoles = this.getRoles();
-        return roles.some(r => userRoles.indexOf(r) < 0);
+        return roles.some(r => userRoles.indexOf(r) >= 0);
     }
 
     private getAuth() {

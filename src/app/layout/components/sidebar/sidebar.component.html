@@ -5,7 +5,9 @@
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
 
-        <a [routerLink]="['/users']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/users']" [routerLinkActive]="['router-link-active']"
+           [appHasRoles]="['ROLE_ADMIN']"
+           class="list-group-item">
             <i class="fa fa-fw fa-users"></i>&nbsp;
             <span>{{ 'Users' | translate }}</span>
         </a>

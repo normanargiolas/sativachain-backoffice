@@ -69,7 +69,7 @@
       "email": "admin@sativachain.org",
       "firstName": "admin",
       "lastName": "admin",
-      "accountExpired": false,
+      "accountExpired": true,
       "accountLocked": false,
       "passwordExpired": false
     },

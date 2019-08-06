@@ -11,6 +11,7 @@ import {AuthGuard} from './shared';
 import {LoginModule} from './login/login.module';
 import {AuthService} from './core/services/auth.service';
 import {DataListComponent} from './core/components/data-list/data-list.component';
+import {HasRolesDirective} from './shared/shared-directives/directives/has-roles.directive';
 
 @NgModule({
     imports: [
@@ -23,7 +24,7 @@ import {DataListComponent} from './core/components/data-list/data-list.component
         AppRoutingModule
     ],
     declarations: [AppComponent, DataListComponent],
-    providers: [AuthGuard, AuthService],
+    providers: [AuthGuard, AuthService, HasRolesDirective],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
