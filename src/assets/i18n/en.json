@@ -58,5 +58,6 @@
     "Submit": "Save",
     "Edit": "Edit",
     "Delete": "Delete",
-    "LockData": "Conferma e blocca i dati"
+    "LockData": "Conferma e blocca i dati",
+    "CreateCompany": "Insert your company data"
 }

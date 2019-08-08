@@ -9,6 +9,12 @@ export const CompanyFormModel: DynamicFormModel = [
     }),
 
     new DynamicInputModel({
+        id: 'owner',
+        label: 'Utente',
+        readOnly: true
+    }),
+
+    new DynamicInputModel({
         id: 'name',
         label: 'Name',
         validators: {
@@ -132,11 +138,5 @@ export const CompanyFormModel: DynamicFormModel = [
         placeholder: 'Registrazione camera di commercio',
         readOnly: false,
         autoComplete: 'false'
-    }),
-
-    new DynamicInputModel({
-        id: 'owner',
-        label: 'Utente',
-        readOnly: true
     })
 ];

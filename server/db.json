@@ -134,7 +134,9 @@
           "authority": "ROLE_TRANSFORMER"
         }
       ],
-      "companies": []
+      "companies": [
+        2
+      ]
     }
   ],
   "company": [
@@ -150,6 +152,19 @@
       "webSite": "www.vivaloziotom.it",
       "registrationLink": "https://ittandisciu.org/1234456",
       "owner": 2
+    },
+    {
+      "id": 2,
+      "owner": 4,
+      "name": "La fattoria dello zio Sam",
+      "legalOffice": "Via delle rane 12 Guspini",
+      "representative": "Zio Sam",
+      "vatNumber": "12345678910",
+      "fiscalCode": "12345678910",
+      "pec": "samuele.collu@gmail.com",
+      "email": "samuele.collu@gmail.com",
+      "webSite": "samuele.collu@gmail.com",
+      "registrationLink": "https://ittandisciu.org/1234456"
     }
   ]
 }

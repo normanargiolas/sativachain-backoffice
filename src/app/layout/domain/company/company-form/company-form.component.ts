@@ -6,6 +6,7 @@ import {BackofficeUser} from '../../../../model/backofficeUser';
 import {DynamicFormModel, DynamicFormService} from '@ng-dynamic-forms/core';
 import {FormGroup} from '@angular/forms';
 import {CompanyFormModel} from './company-form-model';
+import {BackofficeUserService} from '../../../../core/services/data/backofficeUser/backoffice-user.service';
 
 @Component({
     selector: 'app-company-form',
@@ -14,6 +15,7 @@ import {CompanyFormModel} from './company-form-model';
 })
 export class CompanyFormComponent implements OnInit {
     entity: Company = {} as Company;
+    user: BackofficeUser;
     state: string;
     entityForm: FormGroup;
     formModel: DynamicFormModel = CompanyFormModel;
@@ -21,6 +23,7 @@ export class CompanyFormComponent implements OnInit {
 
     constructor(
         private service: CompanyService,
+        private userService: BackofficeUserService,
         private router: Router,
         private route: ActivatedRoute,
         private formService: DynamicFormService
@@ -41,15 +44,16 @@ export class CompanyFormComponent implements OnInit {
     getData() {
         let companyId;
         // TODO create a session storage service to do this
-        const user: BackofficeUser = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
-        if (user.companies.length > 0) {
-            companyId = user.companies[0];
+        this.user = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
+        if (this.user.companies && this.user.companies.length > 0) {
+            companyId = this.user.companies[0];
             if (this.state === 'check') {
                 this.state = 'show';
             }
         } else {
             this.state = 'create';
             this.entityForm.reset();
+            this.entityForm.controls.owner.setValue(this.user.id);
         }
         if (this.state === 'show' || this.state === 'edit') {
             // const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -73,8 +77,21 @@ export class CompanyFormComponent implements OnInit {
                 obs = this.service.update(this.entity.id, this.entity);
             }
             obs.subscribe(res => {
-                    this.router.navigateByUrl('/company');
-                    this.entityForm.reset();
+                    if (!this.user.companies) {
+                        this.user.companies = [];
+                    }
+                    if ( this.user.companies.indexOf(res.id ) < 0 ) {
+                        this.user.companies.push(res.id);
+                    }
+                    this.userService.update(this.user.id, this.user).subscribe(value => {
+                        // TODO create a session storage service to do this
+                        sessionStorage.setItem('user', JSON.stringify(value));
+                        // this.entityForm.reset();
+                        const thisComponent = this;
+                        setTimeout(function() {
+                            thisComponent.ngOnInit();
+                        }, 100);
+                    });
                 },
                 error => {
                     this.errors = error.error._embedded.errors.map(err => err.message);
