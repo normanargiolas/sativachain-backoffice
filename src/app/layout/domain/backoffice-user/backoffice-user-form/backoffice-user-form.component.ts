@@ -18,8 +18,8 @@ export class BackofficeUserFormComponent implements OnInit {
     user: BackofficeUser;
     formModel: DynamicFormModel = BackofficeUserFormModel;
     userForm: FormGroup;
-    public dialog: MatDialog;
-    private errors: any[];
+    dialog: MatDialog;
+    errors: any[];
 
     constructor(
         private router: Router,

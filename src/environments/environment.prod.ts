@@ -1,6 +1,6 @@
-const apiBaseUrl = 'http://localhost:3000';
+const apiBaseUrl = 'https://my-json-server.typicode.com/ozisam/db';
 export const environment = {
-    production: false,
+    production: true,
     apiBaseUrl: apiBaseUrl,
     loginUrl: `${apiBaseUrl}/login`
 };
