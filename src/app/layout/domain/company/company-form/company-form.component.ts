@@ -28,8 +28,8 @@ export class CompanyFormComponent implements OnInit {
 
     ngOnInit() {
         this.route.data.subscribe(data => this.state = data.state);
-        this.getData();
         this.entityForm = this.formService.createFormGroup(this.formModel);
+        this.getData();
         if (this.state === 'show') {
             Object.keys(this.entityForm.controls).forEach(key => {
                 const value = this.entityForm.controls[key];
@@ -47,6 +47,9 @@ export class CompanyFormComponent implements OnInit {
             if (this.state === 'check') {
                 this.state = 'show';
             }
+        } else {
+            this.state = 'create';
+            this.entityForm.reset();
         }
         if (this.state === 'show' || this.state === 'edit') {
             // const id = Number(this.route.snapshot.paramMap.get('id'));

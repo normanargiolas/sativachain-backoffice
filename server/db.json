@@ -70,15 +70,8 @@
       "firstName": "admin",
       "lastName": "admin",
       "accountExpired": true,
-      "accountLocked": false,
-      "passwordExpired": false,
-      "authorities": [
-        {
-          "id": 3,
-          "authority": "ROLE_ADMIN"
-        }
-      ],
-      "companies": []
+      "accountLocked": true,
+      "passwordExpired": false
     },
     {
       "id": 2,
