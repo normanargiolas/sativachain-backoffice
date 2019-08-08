@@ -12,6 +12,7 @@ import {LoginModule} from './login/login.module';
 import {AuthService} from './core/services/auth.service';
 import {DataListComponent} from './core/components/data-list/data-list.component';
 import {HasRolesDirective} from './shared/shared-directives/directives/has-roles.directive';
+import {BackofficeUserService} from './core/services/data/backofficeUser/backoffice-user.service';
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import {HasRolesDirective} from './shared/shared-directives/directives/has-roles
         AppRoutingModule
     ],
     declarations: [AppComponent, DataListComponent],
-    providers: [AuthGuard, AuthService, HasRolesDirective],
+    providers: [AuthGuard, BackofficeUserService, AuthService, HasRolesDirective],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

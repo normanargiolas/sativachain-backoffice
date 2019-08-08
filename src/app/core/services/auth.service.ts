@@ -52,6 +52,8 @@ export class AuthService {
         const loginUrl = environment.loginUrl;
         this.http.get<Auth>(`${loginUrl}/${username}`).subscribe(
             res => {
+                const uName = res.username;
+                // TODO create a session storage service to do this
                 sessionStorage.setItem('auth', JSON.stringify(res));
                 console.log('Login success: ', res);
                 this.router.navigateByUrl('/dashboard');
@@ -65,6 +67,7 @@ export class AuthService {
     }
 
     logout() {
+        // TODO create a session storage service to do this
         sessionStorage.clear()
         this.router.navigateByUrl('login');
     }

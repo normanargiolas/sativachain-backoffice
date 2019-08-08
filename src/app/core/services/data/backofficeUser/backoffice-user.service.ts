@@ -16,4 +16,8 @@ export class BackofficeUserService extends CrudService<BackofficeUser, number> {
     ) {
         super(_http, `${environment.apiBaseUrl}/backofficeUser`, _auth);
     }
+
+    getUser(username: string) {
+        return this.findBy({'username': username});
+    }
 }

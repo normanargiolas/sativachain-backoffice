@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackofficeUserFormComponent } from './backoffice-user-form.component';
+import { CompanyFormComponent } from './company-form.component';
 
 describe('CompanyFormComponent', () => {
-  let component: BackofficeUserFormComponent;
-  let fixture: ComponentFixture<BackofficeUserFormComponent>;
+  let component: CompanyFormComponent;
+  let fixture: ComponentFixture<CompanyFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackofficeUserFormComponent ]
+      declarations: [ CompanyFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BackofficeUserFormComponent);
+    fixture = TestBed.createComponent(CompanyFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

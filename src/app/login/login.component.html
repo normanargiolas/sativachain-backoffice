@@ -3,7 +3,7 @@
         <div class="col-md-4">
             <img src="assets/images/icon_192.png" width="150px"/>
 <!--            <h1>{{ 'AppName' | translate }}</h1>-->
-            <form role="form" #f="ngForm" (submit)="auth.login(f.value)">
+            <form role="form" #f="ngForm" (submit)="login(f)">
                 <div class="form-content">
                     <div class="form-group">
                         <input type="text" [ngModel] name="username" class="form-control input-underline input-lg"

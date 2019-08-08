@@ -12,4 +12,5 @@ export interface BackofficeUser {
     accountLocked: boolean;
     passwordExpired: boolean;
     authorities: BackofficeRole[];
+    companies: number[];
 }

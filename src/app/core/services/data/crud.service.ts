@@ -43,6 +43,12 @@ export abstract class CrudService<T, ID> implements CrudOperations<T, ID> {
         return this._http.get<T>(this._base + '/' + id, this.getHttpOptions());
     }
 
+    findBy(params: any): Observable<T[]> {
+        const options = this.getHttpOptions();
+        options['params'] = params;
+        return this._http.get<T[]>(this._base + '/', options);
+    }
+
     findAll(): Observable<T[]> {
         return this._http.get<T[]>(this._base, this.getHttpOptions());
     }
