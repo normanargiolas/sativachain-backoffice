@@ -1,122 +1,142 @@
-import {DynamicCheckboxModel, DynamicFormModel, DynamicInputModel} from '@ng-dynamic-forms/core';
+import {DynamicFormModel, DynamicInputModel} from '@ng-dynamic-forms/core';
 
-export const BackofficeUserFormModel: DynamicFormModel = [
+export const CompanyFormModel: DynamicFormModel = [
 
     new DynamicInputModel({
-
         id: 'id',
         label: 'ID',
-        readOnly: true,
-        hidden:true
-
+        readOnly: true
     }),
-    new DynamicInputModel({
 
-        id: 'username',
-        label: 'Username',
+    new DynamicInputModel({
+        id: 'name',
+        label: 'Name',
         validators: {
             required: null
         },
         errorMessages: {
             required: '{{ label }} is required.'
         },
-        placeholder: 'Username',
+        placeholder: 'Company name',
         readOnly: false,
         autoComplete: 'false'
-
     }),
 
     new DynamicInputModel({
-
-        id: 'password',
-        label: 'Password',
-        inputType: 'password',
+        id: 'legalOffice',
+        label: 'Sede legale',
         validators: {
             required: null
         },
         errorMessages: {
             required: '{{ label }} is required.'
         },
-        placeholder: 'Password',
+        placeholder: 'Sede legale',
         readOnly: false,
         autoComplete: 'false'
-
-    }),
-
-    new DynamicCheckboxModel({
-
-        id: 'enabled',
-        label: 'Abilitato',
-        required: false,
-
-
     }),
 
     new DynamicInputModel({
+        id: 'representative',
+        label: 'Rappresentante legale',
+        validators: {
+            required: null
+        },
+        errorMessages: {
+            required: '{{ label }} is required.'
+        },
+        placeholder: 'Rappresentante legale',
+        readOnly: false,
+        autoComplete: 'false'
+    }),
 
+    new DynamicInputModel({
+        id: 'vatNumber',
+        label: 'Partita IVA',
+        validators: {
+            required: null
+        },
+        errorMessages: {
+            required: '{{ label }} is required.'
+        },
+        placeholder: 'Partita IVA',
+        readOnly: false,
+        autoComplete: 'false'
+    }),
+
+    new DynamicInputModel({
+        id: 'fiscalCode',
+        label: 'Codice fiscale',
+        validators: {
+            required: null
+        },
+        errorMessages: {
+            required: '{{ label }} is required.'
+        },
+        placeholder: 'Codice fiscale',
+        readOnly: false,
+        autoComplete: 'false'
+    }),
+
+    new DynamicInputModel({
+        id: 'pec',
+        label: 'PEC',
+        validators: {
+            required: null
+        },
+        errorMessages: {
+            required: '{{ label }} is required.'
+        },
+        placeholder: 'PEC',
+        readOnly: false,
+        autoComplete: 'false'
+    }),
+
+    new DynamicInputModel({
         id: 'email',
         label: 'Email',
         validators: {
-            required: null,
-            email: null
+            required: null
         },
         errorMessages: {
-            required: '{{ label }} is required.',
-            email: ' This {{label}} is not a valid address'
+            required: '{{ label }} is required.'
         },
         placeholder: 'Email',
         readOnly: false,
-
+        autoComplete: 'false'
     }),
-    new DynamicInputModel({
 
-        id: 'firstName',
-        label: 'Nome',
+    new DynamicInputModel({
+        id: 'webSite',
+        label: 'Sito web',
         validators: {
             required: null
         },
         errorMessages: {
             required: '{{ label }} is required.'
         },
-        placeholder: 'Nome',
+        placeholder: 'Sito web',
         readOnly: false,
-
+        autoComplete: 'false'
     }),
-    new DynamicInputModel({
 
-        id: 'lastName',
-        label: 'Cognome',
+    new DynamicInputModel({
+        id: 'registrationLink',
+        label: 'Registrazione camera di commercio',
         validators: {
             required: null
         },
         errorMessages: {
             required: '{{ label }} is required.'
         },
-        placeholder: 'Cognome',
+        placeholder: 'Registrazione camera di commercio',
         readOnly: false,
-
+        autoComplete: 'false'
     }),
 
-    new DynamicCheckboxModel({
-
-        id: 'accountExpired',
-        label: 'Account scaduto',
-        required: false,
-        value: false
-    }),
-
-    new DynamicCheckboxModel({
-
-        id: 'accountLocked',
-        label: 'Account bloccato',
-        required: false,
-        value: false
-    }),
-    new DynamicCheckboxModel({
-
-        id: 'passwordExpired',
-        label: 'Password scaduta',
-        required: false,
-        value: false
-    }),
+    new DynamicInputModel({
+        id: 'owner',
+        label: 'Utente',
+        readOnly: true
+    })
 ];

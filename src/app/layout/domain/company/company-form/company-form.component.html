@@ -1,3 +1,28 @@
-<div>
-  <pre> {{company | json }} </pre>
+<div class="alert alert-danger" *ngIf="errors?.length">
+    <p *ngFor="let item of errors"> {{item}}</p>
+</div>
+<div class="form-container">
+    <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+        <dynamic-material-form [group]="entityForm" [model]="formModel"></dynamic-material-form>
+
+        <div class="form-group form-buttons">
+            <button *ngIf="this.state!== 'show'" type="submit" class="btn btn-outline-success" [disabled]="entityForm.invalid">
+                <i class="fa fa-check fa-fw"></i>
+                {{ 'Submit' | translate }}
+            </button>
+            <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-primary" [routerLink]="['/company/edit', { id: entity?.id}]">
+                <i class="fa fa-pencil-square-o fa-fw"></i>
+                {{ 'Edit' | translate }}
+            </button>
+            <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-danger" (click)="delete()">
+                <i class="fa fa-trash-o fa-fw"></i>
+                {{ 'Delete' | translate }}
+            </button>
+            <button *ngIf="this.state=== 'show'" type="button" class="btn btn-outline-danger" (click)="lockData()">
+                <i class="fa fa-trash-o fa-fw"></i>
+                {{ 'LockData' | translate }}
+            </button>
+        </div>
+    </form>
+
 </div>

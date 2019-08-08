@@ -44,6 +44,7 @@
     "OrLogin": " oppure, se se già registrato ",
     "Roles": "Ruoli",
     "Users": "Utenti",
+    "Company": "Dati azienda",
     "id": "Id",
     "username": "Username",
     "enabled": "Attivo",
@@ -57,5 +58,6 @@
     "GoBack": "Indietro",
     "Submit": "Salva",
     "Edit": "Modifica",
-    "Delete": "Elimina"
+    "Delete": "Elimina",
+    "LockData": "Conferma e blocca i dati"
 }

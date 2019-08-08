@@ -43,6 +43,7 @@
     "OrLogin": " or, if already registered ",
     "Roles": "Roles",
     "Users": "Users",
+    "Company": "Company data",
     "id": "Id",
     "username": "Username",
     "enabled": "Enabled",
@@ -57,4 +58,5 @@
     "Submit": "Save",
     "Edit": "Edit",
     "Delete": "Delete",
+    "LockData": "Conferma e blocca i dati"
 }
