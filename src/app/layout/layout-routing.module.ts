@@ -23,6 +23,10 @@ const routes: Routes = [
             { path: 'field', loadChildren: () => import('./domain/field/field.module').then(m => m.FieldModule),
                 canActivate: [AuthGuard],
                 data: { roles: [Role.Farmer, Role.Transformer, Role.Seller] }
+            },
+            { path: 'seed', loadChildren: () => import('./domain/seed/seed.module').then(m => m.SeedModule),
+                canActivate: [AuthGuard],
+                data: { roles: [Role.Farmer, Role.Transformer, Role.Seller] }
             }
         ]
     }

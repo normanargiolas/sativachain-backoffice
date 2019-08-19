@@ -67,5 +67,6 @@
     "DefaultDeleteMessage": "Delete this data?",
     "Yes": "Yes",
     "No": "No",
-    "address": "Address"
+    "address": "Address",
+    "Seeds": "Seeds"
 }

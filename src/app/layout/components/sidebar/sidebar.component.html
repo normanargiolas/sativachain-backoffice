@@ -1,7 +1,7 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <i class="fa fa-fw fa-columns"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
 
@@ -24,6 +24,13 @@
            class="list-group-item">
             <i class="fa fa-fw fa-map-signs"></i>&nbsp;
             <span>{{ 'Fields' | translate }}</span>
+        </a>
+
+        <a [routerLink]="['/seed']" [routerLinkActive]="['router-link-active']"
+           [appHasRoles]="['ROLE_FARMER', 'ROLE_TRANSFORMER', 'ROLE_SELLER']"
+           class="list-group-item">
+            <i class="fa fa-fw fa-seedling"></i>&nbsp;
+            <span>{{ 'Seeds' | translate }}</span>
         </a>
 
         <div class="nested-menu">
