@@ -66,5 +66,6 @@
     "Field": "Field",
     "DefaultDeleteMessage": "Delete this data?",
     "Yes": "Yes",
-    "No": "No"
+    "No": "No",
+    "address": "Address"
 }
