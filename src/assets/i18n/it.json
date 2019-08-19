@@ -69,5 +69,13 @@
     "Yes": "Si",
     "No": "No",
     "address": "Indirizzo",
-    "Seeds": "Sementi"
+    "Seeds": "Sementi",
+    "productCode": "Prodotto",
+    "lotCode": "Lotto",
+    "species": "Specie",
+    "variety": "Varietà",
+    "country": "Paese",
+    "date": "Data",
+    "authorization": "Autorizzazione"
+
 }

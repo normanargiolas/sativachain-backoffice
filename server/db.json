@@ -202,5 +202,40 @@
       "cadastralData": "aaaaaa",
       "authorization": "bbbbbbbbddd"
     }
+  ],
+  "seed": [
+    {
+      "id": 1,
+      "owner": 2,
+      "productCode": "123456",
+      "lotCode": "123456",
+      "species": "Canapa Sativa",
+      "variety": "Power flower",
+      "country": "Italia",
+      "date": "07/11/2018",
+      "certificate": "Autorizazione concessa da...."
+    },
+    {
+      "id": 2,
+      "owner": 2,
+      "productCode": "654321",
+      "lotCode": "654321",
+      "species": "Canapa Sativa",
+      "variety": "Haze berry",
+      "country": "Italia",
+      "date": "07/11/2018",
+      "certificate": "Autorizazione concessa da...."
+    },
+    {
+      "id": 3,
+      "owner": 4,
+      "productCode": "554432",
+      "lotCode": "554432",
+      "species": "Canapa Sativa",
+      "variety": "Shining silver haze",
+      "country": "Italia",
+      "date": "07/11/2018",
+      "certificate": "Autorizazione concessa da...."
+    }
   ]
 }
