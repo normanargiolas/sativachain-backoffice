@@ -19,6 +19,13 @@
             <span>{{ 'Company' | translate }}</span>
         </a>
 
+        <a [routerLink]="['/field']" [routerLinkActive]="['router-link-active']"
+           [appHasRoles]="['ROLE_FARMER', 'ROLE_TRANSFORMER', 'ROLE_SELLER']"
+           class="list-group-item">
+            <i class="fa fa-fw fa-map-signs"></i>&nbsp;
+            <span>{{ 'Fields' | translate }}</span>
+        </a>
+
 
 <!--        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
 <!--            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;-->

@@ -19,6 +19,10 @@ const routes: Routes = [
             { path: 'company', loadChildren: () => import('./domain/company/company.module').then(m => m.CompanyModule),
                 canActivate: [AuthGuard],
                 data: { roles: [Role.Farmer, Role.Transformer, Role.Seller] }
+            },
+            { path: 'field', loadChildren: () => import('./domain/field/field.module').then(m => m.FieldModule),
+                canActivate: [AuthGuard],
+                data: { roles: [Role.Farmer, Role.Transformer, Role.Seller] }
             }
         ]
     }

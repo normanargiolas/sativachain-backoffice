@@ -60,5 +60,7 @@
     "Edit": "Modifica",
     "Delete": "Elimina",
     "LockData": "Conferma e blocca i dati",
-    "CreateCompany": "Crea il passaporto digitale della tua zienda"
+    "CreateCompany": "Crea il passaporto digitale della tua zienda",
+    "Fields": "Terreni",
+    "Field": "Terreno"
 }

@@ -59,5 +59,7 @@
     "Edit": "Edit",
     "Delete": "Delete",
     "LockData": "Conferma e blocca i dati",
-    "CreateCompany": "Insert your company data"
+    "CreateCompany": "Insert your company data",
+    "Fields": "Fields",
+    "Field": "Field"
 }
