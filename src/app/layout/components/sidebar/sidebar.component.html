@@ -26,6 +26,36 @@
             <span>{{ 'Fields' | translate }}</span>
         </a>
 
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('profile')">
+                <i class="fa fa-user fa-fw"></i>
+                <span>{{authService.getUsername()}}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'profile'">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button (click)="onLoggedout()">
+                            <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                        </button>
+                    </li>
+                </ul>
+            </li>
+        </div>
 
 <!--        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
 <!--            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;-->
@@ -136,35 +166,35 @@
 <!--                    </ul>-->
 <!--                </li>-->
 <!--            </div>-->
-            <div class="nested-menu">
-                <a class="list-group-item" (click)="addExpandClass('profile')">
-                    <span><i class="fa fa-user fa-fw"></i>{{authService.getUsername()}}</span>
-                </a>
-                <li class="nested" [class.expand]="showMenu === 'profile'">
-                    <ul class="submenu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <button (click)="onLoggedout()">
-                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
-                            </button>
-                        </li>
-                    </ul>
-                </li>
-            </div>
+<!--            <div class="nested-menu">-->
+<!--                <a class="list-group-item" (click)="addExpandClass('profile')">-->
+<!--                    <span><i class="fa fa-user fa-fw"></i>{{authService.getUsername()}}</span>-->
+<!--                </a>-->
+<!--                <li class="nested" [class.expand]="showMenu === 'profile'">-->
+<!--                    <ul class="submenu">-->
+<!--                        <li>-->
+<!--                            <a href="javascript:void(0)">-->
+<!--                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="javascript:void(0)">-->
+<!--                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="javascript:void(0)">-->
+<!--                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <button (click)="onLoggedout()">-->
+<!--                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--            </div>-->
 <!--        </div>-->
     </div>
     <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
