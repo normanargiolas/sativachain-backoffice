@@ -89,7 +89,8 @@ export class CompanyFormComponent implements OnInit {
                         // this.entityForm.reset();
                         const thisComponent = this;
                         setTimeout(function() {
-                            thisComponent.ngOnInit();
+                            // thisComponent.ngOnInit();
+                            thisComponent.router.navigateByUrl('/company');
                         }, 100);
                     });
                 },
