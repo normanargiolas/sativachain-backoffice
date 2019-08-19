@@ -20,13 +20,13 @@ export class FieldListComponent implements AfterViewInit {
     user: BackofficeUser;
     displayedColumns: string[] = [
         'id',
-        'owner',
-        'size',
-        'lat',
-        'lon',
+        // 'owner',
+        // 'size',
+        // 'lat',
+        // 'lon',
         'address',
-        'company',
-        'cadastralData',
+        // 'company',
+        // 'cadastralData',
         'actions'
     ];
     dataColumns: string[] = [
