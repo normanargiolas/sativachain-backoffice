@@ -61,6 +61,10 @@
     "Create": "Create",
     "LockData": "Conferma e blocca i dati",
     "CreateCompany": "Insert your company data",
+    "CreateField": "Insert your field data",
     "Fields": "Fields",
-    "Field": "Field"
+    "Field": "Field",
+    "DefaultDeleteMessage": "Delete this data?",
+    "Yes": "Yes",
+    "No": "No"
 }

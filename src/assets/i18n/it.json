@@ -62,6 +62,11 @@
     "Create": "Aggiungi",
     "LockData": "Conferma e blocca i dati",
     "CreateCompany": "Crea il passaporto digitale della tua zienda",
+    "CreateField": "Crea il passaporto digitale del terreno",
     "Fields": "Terreni",
-    "Field": "Terreno"
+    "Field": "Terreno",
+    "DefaultDeleteMessage": "Eliminare il dato selezionato?",
+    "Yes": "Si",
+    "No": "No"
+
 }

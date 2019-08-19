@@ -6,6 +6,8 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {ConfirmDialogComponent} from '../../../components/confirm-dialog/confirm-dialog.component';
 import {Field} from '../../../../model/field';
 import {FieldService} from '../../../../core/services/data/field/field.service';
+import {TranslateService} from '@ngx-translate/core';
+import {BackofficeUser} from '../../../../model/backofficeUser';
 
 @Component({
   selector: 'app-field-list',
@@ -14,6 +16,7 @@ import {FieldService} from '../../../../core/services/data/field/field.service';
 })
 export class FieldListComponent implements AfterViewInit {
     data: MatTableDataSource<Field>;
+    user: BackofficeUser;
     displayedColumns: string[] = [
         'id',
         'owner',
@@ -47,19 +50,22 @@ export class FieldListComponent implements AfterViewInit {
     constructor(
         public service: FieldService,
         public router: Router,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private translate: TranslateService
 ) {
     }
 
     ngAfterViewInit() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+        // TODO create a session storage service to do this
+        this.user = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
 
         merge(this.sort.sortChange, this.paginator.page)
             .pipe(
                 startWith({}),
                 switchMap(() => {
                     this.isLoadingResults = true;
-                    return this.service.findAll();
+                    return this.service.findBy({'owner': this.user.id});
                 }),
                 map(data => {
                     // Flip flag to show that loading has finished.
@@ -81,7 +87,7 @@ export class FieldListComponent implements AfterViewInit {
     delete(id: number) {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             width: '350px',
-            data: 'Do you confirm the deletion of this data?'
+            data: this.translate.instant('DefaultDeleteMessage')
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
