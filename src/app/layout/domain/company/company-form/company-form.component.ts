@@ -7,6 +7,7 @@ import {DynamicFormModel, DynamicFormService} from '@ng-dynamic-forms/core';
 import {FormGroup} from '@angular/forms';
 import {CompanyFormModel} from './company-form-model';
 import {BackofficeUserService} from '../../../../core/services/data/backofficeUser/backoffice-user.service';
+import {StorageService} from '../../../../core/services/storage/storage.service';
 
 @Component({
     selector: 'app-company-form',
@@ -26,7 +27,8 @@ export class CompanyFormComponent implements OnInit {
         private userService: BackofficeUserService,
         private router: Router,
         private route: ActivatedRoute,
-        private formService: DynamicFormService
+        private formService: DynamicFormService,
+        private storage: StorageService
     ) { }
 
     ngOnInit() {
@@ -43,8 +45,7 @@ export class CompanyFormComponent implements OnInit {
 
     getData() {
         let companyId;
-        // TODO create a session storage service to do this
-        this.user = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
+        this.user = this.storage.getUser();
         if (this.user.companies && this.user.companies.length > 0) {
             companyId = this.user.companies[0];
             if (this.state === 'check') {
@@ -84,8 +85,7 @@ export class CompanyFormComponent implements OnInit {
                         this.user.companies.push(res.id);
                     }
                     this.userService.update(this.user.id, this.user).subscribe(value => {
-                        // TODO create a session storage service to do this
-                        sessionStorage.setItem('user', JSON.stringify(value));
+                        this.storage.setUser(value);
                         // this.entityForm.reset();
                         const thisComponent = this;
                         setTimeout(function() {

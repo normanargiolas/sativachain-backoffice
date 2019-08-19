@@ -8,6 +8,7 @@ import {Field} from '../../../../model/field';
 import {FieldService} from '../../../../core/services/data/field/field.service';
 import {TranslateService} from '@ngx-translate/core';
 import {BackofficeUser} from '../../../../model/backofficeUser';
+import {StorageService} from '../../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-field-list',
@@ -51,14 +52,14 @@ export class FieldListComponent implements AfterViewInit {
         public service: FieldService,
         public router: Router,
         public dialog: MatDialog,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private storage: StorageService
 ) {
     }
 
     ngAfterViewInit() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
-        // TODO create a session storage service to do this
-        this.user = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
+        this.user = this.storage.getUser();
 
         merge(this.sort.sortChange, this.paginator.page)
             .pipe(

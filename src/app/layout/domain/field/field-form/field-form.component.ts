@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Field} from '../../../../model/field';
 import {FieldFormModel} from './field-form-model';
 import {FieldService} from '../../../../core/services/data/field/field.service';
+import {StorageService} from '../../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-field-form',
@@ -26,7 +27,8 @@ export class FieldFormComponent implements OnInit {
         private userService: BackofficeUserService,
         private router: Router,
         private route: ActivatedRoute,
-        private formService: DynamicFormService
+        private formService: DynamicFormService,
+        private storage: StorageService
     ) { }
 
     ngOnInit() {
@@ -42,8 +44,8 @@ export class FieldFormComponent implements OnInit {
     }
 
     getData() {
-        // TODO create a session storage service to do this
-        this.user = JSON.parse(sessionStorage.getItem('user')) as BackofficeUser;
+        this.user = this.storage.getUser();
+
         if (this.state === 'create') {
             this.entityForm.reset();
             this.entityForm.controls.owner.setValue(this.user.id);
@@ -70,7 +72,7 @@ export class FieldFormComponent implements OnInit {
                 obs = this.service.update(this.entity.id, this.entity);
             }
             obs.subscribe(res => {
-                    this.router.navigateByUrl('/fields');
+                    this.router.navigateByUrl('/field');
                     this.entityForm.reset();
                 },
                 error => {
@@ -83,5 +85,9 @@ export class FieldFormComponent implements OnInit {
     }
 
     lockData() {
+    }
+
+    resetForm() {
+        this.entityForm.reset();
     }
 }

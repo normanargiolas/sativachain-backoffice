@@ -1,6 +1,9 @@
-<div class="alert alert-danger" *ngIf="errors?.length">
-    <p *ngFor="let item of errors"> {{item}}</p>
+<div class="row container">
+    <button class="btn btn-outline-dark" type="button" routerLink="../" (click)="resetForm()">
+        <i class="fa fa-undo fa-fw"></i>{{ 'GoBack' | translate }}
+    </button>
 </div>
+
 <h4 *ngIf="state=='create'">{{ 'CreateField' | translate }}</h4>
 <div class="form-container">
     <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">

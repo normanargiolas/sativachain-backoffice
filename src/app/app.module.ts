@@ -13,6 +13,7 @@ import {AuthService} from './core/services/auth.service';
 import {DataListComponent} from './core/components/data-list/data-list.component';
 import {HasRolesDirective} from './shared/shared-directives/directives/has-roles.directive';
 import {BackofficeUserService} from './core/services/data/backofficeUser/backoffice-user.service';
+import {StorageService} from './core/services/storage/storage.service';
 
 @NgModule({
     imports: [
@@ -25,7 +26,7 @@ import {BackofficeUserService} from './core/services/data/backofficeUser/backoff
         AppRoutingModule
     ],
     declarations: [AppComponent, DataListComponent],
-    providers: [AuthGuard, BackofficeUserService, AuthService, HasRolesDirective],
+    providers: [AuthGuard, BackofficeUserService, AuthService, HasRolesDirective, StorageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

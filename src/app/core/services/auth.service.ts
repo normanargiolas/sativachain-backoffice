@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
 import {Role} from '../../model/role';
+import {StorageService} from './storage/storage.service';
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +16,8 @@ export class AuthService {
     constructor(
         private http: HttpClient,
         private router: Router,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private storage: StorageService
     ) {
         const i = 0;
     }
@@ -53,8 +55,7 @@ export class AuthService {
         this.http.get<Auth>(`${loginUrl}/${username}`).subscribe(
             res => {
                 const uName = res.username;
-                // TODO create a session storage service to do this
-                sessionStorage.setItem('auth', JSON.stringify(res));
+                this.storage.setAuth(res);
                 console.log('Login success: ', res);
                 this.router.navigateByUrl('/dashboard');
             },
@@ -67,8 +68,7 @@ export class AuthService {
     }
 
     logout() {
-        // TODO create a session storage service to do this
-        sessionStorage.clear()
+        this.storage.clear();
         this.router.navigateByUrl('login');
     }
 
@@ -110,12 +110,7 @@ export class AuthService {
     }
 
     private getAuth() {
-        const auth = sessionStorage.getItem('auth');
-        if (!auth) {
-            return null;
-        }
-        const authObj = JSON.parse(auth);
-        return authObj;
+        return this.storage.getAuth();
     }
 }
 
