@@ -81,7 +81,7 @@ export class BackofficeUserListComponent implements AfterViewInit {
         });
     }
 
-    deleteUser(id: number) {
+    delete(id: number) {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             width: '350px',
             data: 'Do you confirm the deletion of this data?'

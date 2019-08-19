@@ -1,3 +1,47 @@
-<p>
-  field-list works!
-</p>
+<div class="container row">
+    <button class="btn btn-outline-dark" routerLink="create"> <i class="fa fa-fw fa-plus"></i>{{ 'Create' | translate }}</button>
+</div>
+
+<div class="data-table-container mat-elevation-z8">
+    <div class="">
+        <table mat-table [dataSource]="data" class="table"
+               matSort matSortActive="username" matSortDisableClear matSortDirection="desc">
+
+            <ng-container *ngFor="let column of dataColumns; let i = index" matColumnDef="{{column}}">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>{{column | translate}}</th>
+                <td mat-cell *matCellDef="let row">{{row[column] }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="actions-header"> {{'actions' | translate}} </th>
+                <td mat-cell *matCellDef="let row ">
+                    <button mat-icon-button matTooltip="Click to Show" class="btn action-btn">
+                        <mat-icon aria-label="Show" [routerLink]="['show', {id: row.valueOf().id}]">
+                            <i class="fa fa-eye"></i>
+                            {{ ' ' | translate }}
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Click to Edit" class="btn">
+                        <mat-icon aria-label="Edit" [routerLink]="['edit', { id: row.valueOf().id}]">
+                            <i class="fa fa-pencil-square-o"></i>
+                            {{ ' ' | translate }}</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Click to Delete" class="btn action-btn">
+                        <mat-icon aria-label="Delete" (click)="delete(row.valueOf().id)">
+                            <i class="fa fa-trash-o"></i>
+                            {{ ' ' | translate }}
+                        </mat-icon>
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-sm action-btn action-btn-label" [routerLink]="['role', { id: row.valueOf().id}]">
+                        {{'Roles' | translate}}
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
+</div>
